@@ -8,11 +8,11 @@ import { bindActionCreators } from 'redux'
 
 import store, { history } from '../redux'
 
-import Home from '../components/home'
-import DummyView from '../components/dummy-view'
 import NotFound from '../components/404'
 
 import Startup from './startup'
+
+import Home from '../components/home'
 
 const OnlyAnonymousRoute = ({ component: Component, ...rest }) => {
   const func = (props) =>
@@ -64,14 +64,14 @@ PrivateRoute.propTypes = types
 PrivateRoute.defaultProps = defaults
 OnlyAnonymousRoute.defaultProps = defaults
 
-const mapStateToProps = (state) => ({
-  user: state.authentication.user,
-  token: state.authentication.token
-})
+// const mapStateToProps = (state) => ({
+//   user: state.authentication.user,
+//   token: state.authentication.token
+// })
 
-const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch)
+// const mapDispatchToProps = (dispatch) => bindActionCreators({}, dispatch)
 
-const PrivateRouteConnected = connect(mapStateToProps, mapDispatchToProps)(PrivateRoute)
+// const PrivateRouteConnected = connect(mapStateToProps, mapDispatchToProps)(PrivateRoute)
 
 const mapDispatchToPropsStartup = (dispatch) => bindActionCreators({}, dispatch)
 
@@ -82,11 +82,9 @@ export default (props) => {
       <ConnectedRouter history={history} location={props.location} context={props.context}>
         <StartupConnected>
           <Switch>
-            <Route exact path="/" component={() => <DummyView />} />
-            <Route exact path="/dashboard" component={() => <Home />} />
-            <Route exact path="/dashboard/profile/:user" component={() => <Home />} />
-            <Route exact path="/dashboard/main" component={() => <Home />} />
-            <PrivateRouteConnected exact path="/hidden-route" component={() => <DummyView />} />
+            <Route exact path="/:userName" component={() => <Home />} />
+            <Route exact path="/:userName/:repositoryName" component={() => <Home />} />
+            <Route exact path="/*" component={() => <Home />} />
             <Route component={() => <NotFound />} />
           </Switch>
         </StartupConnected>
