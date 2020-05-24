@@ -1,5 +1,5 @@
 import React from 'react'
-import { useParams, withRouter, Link } from 'react-router-dom'
+import { useParams, Link, withRouter } from 'react-router-dom'
 // import { history } from '../redux'
 
 const Header = ({ match }) => {
