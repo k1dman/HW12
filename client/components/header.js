@@ -4,7 +4,6 @@ import { useParams, Link, withRouter } from 'react-router-dom'
 
 const Header = ({ match }) => {
   const { userName, repositoryName } = useParams()
-  console.log(match)
 
   return (
     <nav className="flex items-center justify-between flex-wrap bg-teal-500 p-6">
