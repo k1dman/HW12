@@ -2,7 +2,11 @@ import React from 'react'
 import Markdown from 'markdown-to-jsx'
 
 const Reptext = (props) => {
-  return <Markdown>{props.repository}</Markdown>
+  return (
+    <div id="description">
+      <Markdown>{props.repository}</Markdown>
+    </div>
+  )
 }
 
 Reptext.propTypes = {}
