@@ -3,10 +3,8 @@ import Markdown from 'markdown-to-jsx'
 
 const Reptext = (props) => {
   return (
-    <div> README
-      <div id="description">
-        <Markdown>{props.repository}</Markdown>
-      </div>
+    <div id="description">
+      <Markdown>{props.repository}</Markdown>
     </div>
   )
 }
